@@ -1,0 +1,130 @@
+<?php
+// Q1 変数と文字列
+$message = '「下村」';
+$newMessage = '私の名前は ' . $message . ' です。';
+echo $newMessage;
+
+// Q2 四則演算;
+$num = 5 * 4;
+echo $num;
+$num /= 2;
+echo $num;
+
+// Q3 日付操作
+echo '現在時刻は、 ' . date('Y年m月d日 H時i分s秒') . ' です。';
+
+// Q4 条件分岐-1 if文
+$device = 'Windows';
+if ($device = 'Windows') {
+    echo '使用OSは、windowsです。';
+} else if($device = 'Mac') {
+    echo '使用OSは、macです。';
+} else {
+    echo 'どちらでもありません'; 
+}
+
+// Q5 条件分岐-2 三項演算子
+$age = 16;
+$message = ($age > 20) ? '成人です。' : '未成年です。';
+
+echo $message;
+
+// Q6 配列
+$prefs =  ['東京都', '埼玉県', '神奈川県', '栃木県', '千葉県', '茨城県','群馬県'];
+echo '' . $prefs[3] . 'と' . $prefs[4] . 'は関東地方の都道府県です。';
+
+// Q7 連想配列-1
+$prefs =  ['東京都' => '新宿区', '神奈川県' => '横浜市',  '千葉県' => '千葉市', 
+'埼玉県' => 'さいたま市', '栃木県' => '宇都宮市','群馬県' => '前橋市', '茨城県' => '水戸市'];
+foreach ($prefs as $p => $c) {
+   echo $c;
+   echo "\n";
+}
+
+// Q8 連想配列-2
+$prefs =  ['東京都' => '新宿区', '神奈川県' => '横浜市',  '千葉県' => '千葉市', 
+'埼玉県' => 'さいたま市', '栃木県' => '宇都宮市','群馬県' => '前橋市', '茨城県' => '水戸市'];
+
+foreach (prefs as $p => $c ) {
+    if ($p === '埼玉県') {
+        echo '埼玉県の県庁所在地は、さいたま市です。';
+    }
+    
+}
+
+
+// Q9 連想配列-3
+$prefs =  ['東京都' => '新宿区', '神奈川県' => '横浜市',  '千葉県' => '千葉市', 
+'埼玉県' => 'さいたま市', '栃木県' => '宇都宮市','群馬県' => '前橋市', '茨城県' => '水戸市'];
+$prefs2 = ['愛知県' => '名古屋市', '大阪府' => '大阪市'];
+$prefs = array_merge($prefs, $prefs2);
+foreach ($prefs as $p => $c ) {
+ if ($p === '愛知県'|| $p === '大阪府') {
+     echo '' . $p . 'は関東地方ではありません';
+     echo "\n";
+ } else {
+    echo '' . $p . 'の県庁所在地は' , $c . 'です。'; 
+    echo "\n";
+}
+
+}
+// Q10 関数-1
+function sayHi($name)
+{
+    echo ''. $name . 'さん、こんにちは。';
+}
+sayHi('鈴木');
+sayHi('佐藤');
+
+// Q11 関数-2
+function calcTaxInPrice($price)
+{
+    $calcTaxInPrice = $price + ($price * 0.1);
+    return $calcTaxInPrice;
+}
+$price = 1000;
+$calcTaxInPrice = calcTaxInPrice(1000);
+echo  '' . $price . '円の商品の税込み価格は' . $calcTaxInPrice . '円です';
+
+// Q12 関数とif文
+function num($distinguishNum) {
+    if($distinguishNum % 2 == 0) {
+        echo '' . $distinguishNum . 'は偶数です';
+        echo "\n";
+    } else {
+        echo '' . $distinguishNum . 'は奇数です';
+        echo "\n";
+    }
+}
+num(11);
+num(24);
+
+// Q13 関数とswitch文
+function grade($evaluateGrade) {
+    switch($evaluateGrade) {
+        case 'A';
+        case 'B';
+        echo '合格です。';
+        echo "\n";
+        break;
+
+        case 'C';
+        echo '合格ですが追加課題があります。';
+        echo "\n";
+        break;
+
+        case 'D';
+        echo '不合格です。';
+        echo "\n";
+        break;
+
+        default:
+        echo '判定不明です。講師に問い合わせてください。';
+        echo "\n";
+        break;
+    }
+}
+grade('A');
+grade('E');
+
+?>
