@@ -11,31 +11,36 @@ $num /= 2;
 echo $num;
 
 // Q3 日付操作
-echo '現在時刻は、 ' . date('Y年m月d日 H時i分s秒') . ' です。';
+echo '現在時刻は、' . date('Y年m月d日 H時i分s秒') . ' です。';
 
 // Q4 条件分岐-1 if文
 $device = 'Windows';
-if ($device = 'Windows') {
-    echo '使用OSは、windowsです。';
-} else if($device = 'Mac') {
-    echo '使用OSは、macです。';
-} else {
-    echo 'どちらでもありません'; 
+if ($device === 'Windows'|| $device === 'Mac') {
+    echo '使用OSは、' .$device . 'です。';
+} 
+   else {
+    echo 'どちらでもありません';
 }
 
 // Q5 条件分岐-2 三項演算子
 $age = 16;
-$message = ($age > 20) ? '成人です。' : '未成年です。';
+$message = ($age >= 18) ? '成人です。' : '未成年です。';
 
 echo $message;
 
 // Q6 配列
 $prefs =  ['東京都', '埼玉県', '神奈川県', '栃木県', '千葉県', '茨城県','群馬県'];
-echo '' . $prefs[3] . 'と' . $prefs[4] . 'は関東地方の都道府県です。';
+echo $prefs[3] . 'と' . $prefs[4] . 'は関東地方の都道府県です。';
 
 // Q7 連想配列-1
-$prefs =  ['東京都' => '新宿区', '神奈川県' => '横浜市',  '千葉県' => '千葉市', 
-'埼玉県' => 'さいたま市', '栃木県' => '宇都宮市','群馬県' => '前橋市', '茨城県' => '水戸市'];
+$prefs =  ['東京都' => '新宿区', 
+    '神奈川県' => '横浜市',  
+    '千葉県' => '千葉市', 
+    '埼玉県' => 'さいたま市', 
+    '栃木県' => '宇都宮市',
+    '群馬県' => '前橋市', 
+    '茨城県' => '水戸市'
+];
 foreach ($prefs as $p => $c) {
    echo $c;
    echo "\n";
@@ -71,7 +76,7 @@ foreach ($prefs as $p => $c ) {
 // Q10 関数-1
 function sayHi($name)
 {
-    echo ''. $name . 'さん、こんにちは。';
+    echo  $name . 'さん、こんにちは。';
 }
 sayHi('鈴木');
 sayHi('佐藤');
@@ -87,7 +92,7 @@ $calcTaxInPrice = calcTaxInPrice(1000);
 echo  '' . $price . '円の商品の税込み価格は' . $calcTaxInPrice . '円です';
 
 // Q12 関数とif文
-function num($distinguishNum) {
+function distinguishNum($distinguishNum) {
     if($distinguishNum % 2 == 0) {
         echo '' . $distinguishNum . 'は偶数です';
         echo "\n";
@@ -104,27 +109,22 @@ function grade($evaluateGrade) {
     switch($evaluateGrade) {
         case 'A';
         case 'B';
-        echo '合格です。';
-        echo "\n";
-        break;
+        return '合格です。';
+        
 
         case 'C';
-        echo '合格ですが追加課題があります。';
-        echo "\n";
-        break;
+        return '合格ですが追加課題があります。';
+        
 
         case 'D';
-        echo '不合格です。';
-        echo "\n";
-        break;
+        return '不合格です。';
+        
 
         default:
-        echo '判定不明です。講師に問い合わせてください。';
-        echo "\n";
-        break;
+        return '判定不明です。講師に問い合わせてください。';
     }
 }
-grade('A');
-grade('E');
+echo grade('A');
+echo grade('E');
 
 ?>
