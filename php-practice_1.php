@@ -65,11 +65,9 @@ $prefs2 = ['愛知県' => '名古屋市', '大阪府' => '大阪市'];
 $prefs = array_merge($prefs, $prefs2);
 foreach ($prefs as $p => $c ) {
  if ($p === '愛知県'|| $p === '大阪府') {
-     echo '' . $p . 'は関東地方ではありません';
-     echo "\n";
+     echo  $p . 'は関東地方ではありません' . "\n";
  } else {
-    echo '' . $p . 'の県庁所在地は' , $c . 'です。'; 
-    echo "\n";
+    echo  $p . 'の県庁所在地は' , $c . 'です。' . "\n"; 
 }
 
 }
@@ -89,16 +87,14 @@ function calcTaxInPrice($price)
 }
 $price = 1000;
 $calcTaxInPrice = calcTaxInPrice(1000);
-echo  '' . $price . '円の商品の税込み価格は' . $calcTaxInPrice . '円です';
+echo  $price . '円の商品の税込み価格は' . $calcTaxInPrice . '円です';
 
 // Q12 関数とif文
 function distinguishNum($distinguishNum) {
     if($distinguishNum % 2 == 0) {
-        echo '' . $distinguishNum . 'は偶数です';
-        echo "\n";
+        echo $distinguishNum . 'は偶数です' . "\n";
     } else {
-        echo '' . $distinguishNum . 'は奇数です';
-        echo "\n";
+        echo $distinguishNum . 'は奇数です' . "\n";
     }
 }
 num(11);
